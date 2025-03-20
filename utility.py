@@ -1,17 +1,22 @@
-
-def input_validity_check(message,start=0,end=None):
-    inp=input(message)
-
-    if not inp.isdecimal:
-        print("Invalid Input You have choosen")
-
+def input_validity_check(message, start=0, end=None):
+    inp = input(message).strip()
     
-    elif start is not None and end is not None:
-            if not (start <= int(inp) <= end):
-                print("Invalid range. Try again!")
-            else:
-                return int(inp)
+
+   
+    if not inp.isdigit(): 
+        print("Invalid input! You have chosen an invalid number.")
+        return None
+
+ 
+    inp_value = int(inp)
+
+    if start is not None and end is not None:
+        if not (start <= inp_value <= end):
+            print(f"Invalid range! Please enter a number between {start} and {end}.")
+            return None  
+        else:
+            return inp_value  
 
     else:
-        return int(inp)
-        
+       
+        return inp_value

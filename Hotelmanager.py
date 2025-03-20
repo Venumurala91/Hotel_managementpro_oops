@@ -14,9 +14,10 @@ class Hotelmanager:
                            '1.Rooms_availability',
                            '2.book_the_room',
                            '3.Avail_rooms_count',
-                           '4.Booked_rooms']
+                           '4.Booked_rooms',
+                           '5.select_billing']
 
-        message=f'Choose_options_from_above_Menu from 1 to {len(options_to_choose)}:'
+        message="Choose_options_from_above_Menu from 1 to 10:"
 
         print("\n",Msg,"\n")
         
@@ -42,6 +43,11 @@ class Hotelmanager:
         
         elif choose==4:
             self.hotel.check_booked_rooms()
+        
+        elif choose==5:
+            hours=int(input("Enter the hours u had stayed :"))
+            self.hotel.payment(hours)
+            
         
         print("\n")
         app.run()
